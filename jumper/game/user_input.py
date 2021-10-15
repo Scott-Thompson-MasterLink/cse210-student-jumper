@@ -7,11 +7,11 @@ class userInput():
         Args:
             self (userInput): An instance of userInput.
         """
-            self.guess_letter = ''
-            self.tries = 4
-            self.guess = self.get_user_input()
-            self.get_user_input()
+            self.guess_letter = []
+            self.mistakes = 0
+            self.guess = ''
             self.word = ''
+            self.correct = None
             
 
 
@@ -26,9 +26,10 @@ class userInput():
         """
             guess = input('Guess letter [a-z]: ')
             self.guess = guess
-            return self.guess
+            self.guess_letter.append(guess)
 
-        def store_guesses_correct_or_incorrect(self):
+
+        def check_mistakes(self):
             """Gets an input from user for the userInput.
 
         Args:
@@ -38,13 +39,8 @@ class userInput():
             The letter the user did input and stores
         """
                        
-            if self.guess in self.word:
-                return True
-            else:
-                return False
+            if self.guess in self.word:  
+                print()
+            else: 
+                self.mistakes += 1
         
-        def prevent_reguessing(self):
-            
-            self.guess_letter += self.guess
-            return self.guess
-            

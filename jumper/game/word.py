@@ -24,9 +24,6 @@ class Word:
         self.word = ''
         self.under_guesses = None
         #self.guesses = []
-
-    def get_word(self):
-        
         self.link = urlopen('https://www.mit.edu/~ecprice/wordlist.10000').read().splitlines()
         self.list_words = []
 
@@ -36,6 +33,7 @@ class Word:
 
         self.word = random.choice(self.list_words)
         self.under_guesses = ['_'] * len(self.word)
+
     
     def verify_guess(self, guess):
 

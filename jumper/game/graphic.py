@@ -50,6 +50,7 @@ class Graphic():
                         " /|\  \n"
                         " / \  \n"
         )
+        self.keep_playing = True
 
 
     def print_graphic(self, wrong_guesses):
@@ -68,6 +69,8 @@ class Graphic():
             print(self.wrong_3)
         elif wrong_guesses == 4:
             print(self.wrong_4)
+            self.keep_playing = False
+
 
 
 # graphic = Graphic()
