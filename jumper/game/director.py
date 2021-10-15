@@ -10,10 +10,10 @@ class Director:
         Controller
 
     Attributes:
-        console (Console): An instance of the class of objects known as Console.
+        graphic (Graphic): An instance of the class of objects known as Graphic.
         keep_playing (boolean): Whether or not the game can continue.
-        seeker (Seeker): An instance of the class of objects known as Seeker.
-        hider (Hider): An instance of the class of objects known as Hider.
+        userinput (userInput): An instance of the class of objects known as userInput.
+        word (Word): An instance of the class of objects known as Word.
     """
 
     def __init__(self):
@@ -49,7 +49,7 @@ class Director:
 
     def get_inputs(self):
         """Gets the inputs at the beginning of each round of play. In this case,
-        that means moving the seeker to a new location.
+        that means getting the letter guess.
 
         Args:
             self (Director): An instance of Director.
@@ -61,7 +61,7 @@ class Director:
         
     def do_updates(self):
         """Updates the important game information for each round of play. In 
-        this case, that means the hider watches the seeker.
+        this case, we update the dashed line and check to see if the letter guess is correct.
 
         Args:
             self (Director): An instance of Director.
@@ -71,7 +71,7 @@ class Director:
         
     def do_outputs(self):
         """Outputs the important game information for each round of play. In 
-        this case, that means the hider provides a hint.
+        this case, printing out the dashed line, the jumper graphic and checking if the game has ended.
 
         Args:
             self (Director): An instance of Director.
