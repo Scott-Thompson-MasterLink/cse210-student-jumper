@@ -11,19 +11,20 @@ class Word:
 
     Attributes:
         word (dictionary): key being the word to guess, and pair being the '_'
-        guesses (list): list of the user's guesses during the game.
-
+        under_guesses (list): list of underscores. Same quantity of the word's index
+        link (list): list of 10000 words extracted from a link
+        list_words (list): list of word tha have more than 5 letters
     """
 
     def __init__(self):
         """The class constructor.
         
-        Args:
-            self (Director): an instance of Director.
+         Args:
+            self (Word): An instance of Word.
+        
         """
         self.word = ''
         self.under_guesses = None
-        #self.guesses = []
         self.link = urlopen('https://www.mit.edu/~ecprice/wordlist.10000').read().splitlines()
         self.list_words = []
 
@@ -36,24 +37,15 @@ class Word:
 
     
     def verify_guess(self, guess):
+        """
+        
+        Args:
+            self (Word): an instance of Word.
+            guess(str): guesses of the user.
+        """
 
         x = re.finditer(f'[{guess}]+', self.word)
         match = [match.start() for match in x]
 
         for i in match:
             self.under_guesses[i] = f'{guess}'
-
-        
-        # from game.word import Word
-
-        # word_x = Word()
-        # word_x.get_word()
-
-        # print(word_x.word)
-
-        # while word_x:
-        #     guess = input('Guess: ')
-        #     word_x.verify_guess(f'{guess[0]}')
-        #     print(word_x.under_guesses)
-
-        # self.under_guesses = '  '.join(self.under_guesses)
